@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影刀API文档索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .module-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .module-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .module-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .module-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .module-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .module-features li {
+            padding: 5px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .module-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .module-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .module-link:hover {
+            background: #5a6fd8;
+        }
+        
+        .category-section {
+            margin-bottom: 40px;
+        }
+        
+        .category-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            border-top: 1px solid #ecf0f1;
+            margin-top: 40px;
+        }
+        
+        .search-box {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 20px;
+            border: 2px solid #e1e8ed;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-input:focus {
+            border-color: #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>影刀API文档索引</h1>
+            <p>影刀RPA平台各模块API文档导航</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="搜索模块功能..." id="searchInput">
+        </div>
+        
+        <div class="category-section">
+            <h2 class="category-title">核心模块</h2>
+            <div class="modules-grid">
+                <div class="module-card" data-keywords="package 元素选择器 图像选择器 资源文件">
+                    <div class="module-title">
+                        <div class="module-icon">P</div>
+                        Package 模块
+                    </div>
+                    <div class="module-description">
+                        用于获取各类元素（网页元素、软件元素及图像元素）及对资源文件进行读写等操作。
+                    </div>
+                    <ul class="module-features">
+                        <li>元素选择器 - 根据元素名称返回元素选择器对象</li>
+                        <li>图像选择器 - 根据图像库中图像元素的名称返回图像选择器对象</li>
+                        <li>资源文件对象 - 对资源文件进行读写操作</li>
+                        <li>支持文本、二进制文件操作</li>
+                        <li>剪切板文件操作</li>
+                    </ul>
+                    <a href="package.md" class="module-link">查看详细文档</a>
+                </div>
+                
+                <div class="module-card" data-keywords="ado 数据库 sql 连接">
+                    <div class="module-title">
+                        <div class="module-icon">A</div>
+                        ADO 模块
+                    </div>
+                    <div class="module-description">
+                        ADO 接口主要是针对数据的操作，如数据库的连接/断开、SQL 语句的执行。
+                    </div>
+                    <ul class="module-features">
+                        <li>数据库连接管理</li>
+                        <li>SQL 语句执行</li>
+                        <li>连接字符串配置</li>
+                        <li>超时控制</li>
+                        <li>结果集处理</li>
+                    </ul>
+                    <a href="xbot.ado.md" class="module-link">查看详细文档</a>
+                </div>
+                
+                <div class="module-card" data-keywords="logging 日志 调试 错误">
+                    <div class="module-title">
+                        <div class="module-icon">L</div>
+                        Logging 模块
+                    </div>
+                    <div class="module-description">
+                        用来记录程序运行中的日志信息，如：错误信息，调试信息，警告信息，普通信息。
+                    </div>
+                    <ul class="module-features">
+                        <li>多级别日志记录</li>
+                        <li>调试信息输出</li>
+                        <li>错误信息记录</li>
+                        <li>警告信息提示</li>
+                        <li>普通信息记录</li>
+                    </ul>
+                    <a href="xbot.logging.md" class="module-link">查看详细文档</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category-section">
+            <h2 class="category-title">应用模块</h2>
+            <div class="modules-grid">
+                <div class="module-card" data-keywords="databook 数据表格 内置表格">
+                    <div class="module-title">
+                        <div class="module-icon">D</div>
+                        DataBook 模块
+                    </div>
+                    <div class="module-description">
+                        对影刀内置的数据表格进行操作（如获取行内容、数据表格内写入行内容等）。
+                    </div>
+                    <ul class="module-features">
+                        <li>行操作 - 获取、设置、追加、插入、删除行</li>
+                        <li>单元格操作 - 获取、设置单元格内容</li>
+                        <li>列操作 - 设置整列内容</li>
+                        <li>区域操作 - 获取、设置区域内容</li>
+                        <li>表格管理 - 清空、获取行数等</li>
+                    </ul>
+                    <a href="xbot.app.databook.md" class="module-link">查看详细文档</a>
+                </div>
+                
+                <div class="module-card" data-keywords="dialog 对话框 交互 消息">
+                    <div class="module-title">
+                        <div class="module-icon">D</div>
+                        Dialog 模块
+                    </div>
+                    <div class="module-description">
+                        调取各类对话框，实现与影刀机器人的交互。如消息对话框、自定义对话框。
+                    </div>
+                    <ul class="module-features">
+                        <li>消息对话框 - 显示提示信息</li>
+                        <li>确认对话框 - 用户确认操作</li>
+                        <li>自定义对话框 - 多种控件支持</li>
+                        <li>数据表格对话框</li>
+                        <li>消息通知框</li>
+                    </ul>
+                    <a href="xbot.app.dialog.md" class="module-link">查看详细文档</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category-section">
+            <h2 class="category-title">Excel模块</h2>
+            <div class="modules-grid">
+                <div class="module-card" data-keywords="excel 创建 打开 工作簿">
+                    <div class="module-title">
+                        <div class="module-icon">E</div>
+                        Excel 模块
+                    </div>
+                    <div class="module-description">
+                        对Excel对象进行操作，如创建Excel对象、打开Excel文件等。
+                    </div>
+                    <ul class="module-features">
+                        <li>创建Excel对象</li>
+                        <li>打开Excel文件</li>
+                        <li>获取当前激活的Excel</li>
+                        <li>支持Office、WPS、Openpyxl</li>
+                        <li>自动检测最佳方式</li>
+                    </ul>
+                    <a href="xbot.excel.md" class="module-link">查看详细文档</a>
+                </div>
+                
+                <div class="module-card" data-keywords="workbook 工作簿 sheet 宏">
+                    <div class="module-title">
+                        <div class="module-icon">W</div>
+                        WorkBook 模块
+                    </div>
+                    <div class="module-description">
+                        对工作簿进行各种处理，如获取Sheet页、激活Sheet页、创建Sheet页、保存为Excel文件、另存为Excel文件、执行宏、关闭工作簿等。
+                    </div>
+                    <ul class="module-features">
+                        <li>Sheet页操作 - 获取、激活、创建、删除、重命名</li>
+                        <li>Sheet页复制 - 复制到当前或其他工作簿</li>
+                        <li>文件操作 - 保存、另存为、关闭</li>
+                        <li>宏操作 - 执行宏</li>
+                        <li>数据透视表操作</li>
+                        <li>PDF导出功能</li>
+                    </ul>
+                    <a href="xbot.excel.WorkBook.md" class="module-link">查看详细文档</a>
+                </div>
+                
+                <div class="module-card" data-keywords="worksheet 工作表 数据 单元格">
+                    <div class="module-title">
+                        <div class="module-icon">S</div>
+                        WorkSheet 模块
+                    </div>
+                    <div class="module-description">
+                        对工作表对象进行处理，如获取Excel内容、写入Excel内容、清除Excel内容等。
+                    </div>
+                    <ul class="module-features">
+                        <li>数据读取 - 单元格、行、列、区域</li>
+                        <li>数据写入 - 单元格、行、列、区域</li>
+                        <li>行操作 - 追加、插入、移除</li>
+                        <li>列操作 - 移除、插入</li>
+                        <li>内容管理 - 清空、区域清空</li>
+                        <li>区域操作 - 选择、复制、粘贴</li>
+                        <li>位置查找 - 可用行列查找</li>
+                        <li>显示控制 - 行列隐藏</li>
+                    </ul>
+                    <a href="xbot.excel.WorkSheet.md" class="module-link">查看详细文档</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category-section">
+            <h2 class="category-title">网页模块</h2>
+            <div class="modules-grid">
+                <div class="module-card" data-keywords="web 网页 浏览器 创建">
+                    <div class="module-title">
+                        <div class="module-icon">W</div>
+                        Web 模块
+                    </div>
+                    <div class="module-description">
+                        对 web 网页进行各式操作，如打开网页、关闭网页。
+                    </div>
+                    <ul class="module-features">
+                        <li>创建网页 - 支持多种浏览器</li>
+                        <li>获取网页 - 按标题、URL获取</li>
+                        <li>获取激活网页</li>
+                        <li>获取所有网页</li>
+                        <li>Cookie管理</li>
+                        <li>关闭所有网页</li>
+                        <li>文件上传下载对话框处理</li>
+                    </ul>
+                    <a href="xbot.web.md" class="module-link">查看详细文档</a>
+                </div>
+                
+                <div class="module-card" data-keywords="browser 浏览器 导航 元素">
+                    <div class="module-title">
+                        <div class="module-icon">B</div>
+                        Browser 模块
+                    </div>
+                    <div class="module-description">
+                        对网页元素、网页进行的各种处理，如网页激活、获取网页标题、网页重新加载、取消网页加载等。
+                    </div>
+                    <ul class="module-features">
+                        <li>网页信息获取 - URL、标题、文本、HTML</li>
+                        <li>网页导航 - 激活、跳转、前进、后退</li>
+                        <li>加载控制 - 重新加载、停止加载、等待完成</li>
+                        <li>JavaScript操作 - 执行JS脚本</li>
+                        <li>网页滚动 - 滚动到指定位置</li>
+                        <li>对话框处理 - 处理网页对话框</li>
+                        <li>网络监听 - 监听网页请求</li>
+                        <li>元素查找 - 多种选择器支持</li>
+                        <li>表格数据提取</li>
+                    </ul>
+                    <a href="xbot.web.Browser.md" class="module-link">查看详细文档</a>
+                </div>
+                
+                <div class="module-card" data-keywords="element 元素 点击 输入">
+                    <div class="module-title">
+                        <div class="module-icon">E</div>
+                        Element 模块
+                    </div>
+                    <div class="module-description">
+                        对网页元素进行处理，如获取相似网页元素、查找目标元素父/子元素、点击元素等。
+                    </div>
+                    <ul class="module-features">
+                        <li>元素关系 - 父元素、子元素、兄弟元素</li>
+                        <li>鼠标操作 - 点击、双击、悬停、拖拽</li>
+                        <li>输入操作 - 填写输入框、剪切板输入</li>
+                        <li>内容获取 - 文本、HTML、值</li>
+                        <li>复选框操作 - 选中、取消选中</li>
+                        <li>下拉框操作 - 单选、多选、按索引选择</li>
+                        <li>属性操作 - 设置、获取属性</li>
+                        <li>状态判断 - 可用性、可见性</li>
+                        <li>截图操作 - 元素截图</li>
+                        <li>文件操作 - 上传、下载</li>
+                        <li>表格操作 - 提取表格数据</li>
+                    </ul>
+                    <a href="xbot.web.Element.md" class="module-link">查看详细文档</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>影刀RPA平台API文档 - 让自动化更简单</p>
+        </div>
+    </div>
+    
+    <script>
+        // 搜索功能
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.module-card');
+            
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                const title = card.querySelector('.module-title').textContent.toLowerCase();
+                const description = card.querySelector('.module-description').textContent.toLowerCase();
+                
+                if (keywords.includes(searchTerm) || title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
